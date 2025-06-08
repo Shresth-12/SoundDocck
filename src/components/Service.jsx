@@ -12,6 +12,7 @@ const sections = [
 
 function LocationsPage() {
   const [activeSection, setActiveSection] = useState('locations');
+  const [visibleSections, setVisibleSections] = useState({});
   const sectionRefs = useRef({});
 
   useEffect(() => {
@@ -20,6 +21,10 @@ function LocationsPage() {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             setActiveSection(entry.target.id);
+            setVisibleSections((prev) => ({
+              ...prev,
+              [entry.target.id]: true,
+            }));
           }
         });
       },
@@ -58,14 +63,19 @@ function LocationsPage() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 py-12 flex gap-12">
+      {/* Active Number */}
       <div className="text-6xl font-bold sticky top-20 self-start w-[60px] -ml-[100px]">
         {activeNumber}
       </div>
+
+      {/* Sidebar */}
       <Sidebar
         sections={sections}
         activeSection={activeSection}
         onLinkClick={handleSidebarClick}
       />
+
+      {/* Main content */}
       <div className="flex-1 space-y-32">
         {sections.map((section) => (
           <div
@@ -79,12 +89,21 @@ function LocationsPage() {
               Access all that France has to offer.
             </h2>
 
+            {/* Group for scroll reveal effect */}
             <div className="flex flex-col md:flex-row items-start gap-16">
-              <img
-                src={img1}
-                alt={section.label}
-                className="w-full md:w-[700px] max-w-xl object-cover h-[500px]"
-              />
+              {/* Image Reveal from Top on Scroll */}
+              <div className="relative overflow-hidden w-full md:w-[700px] max-w-xl h-[500px]">
+                <img
+                  src={img1}
+                  alt={section.label}
+                  className={`absolute top-0 left-0 w-full h-full object-cover transform transition-transform duration-1000 ease-in-out ${
+                    visibleSections[section.id]
+                      ? 'translate-y-0'
+                      : 'translate-y-[-100%]'
+                  }`}
+                />
+              </div>
+
               <div className="flex-1 text-gray-700 text-sm leading-relaxed space-y-4">
                 <p>
                   We can unlock the most iconic and breathtaking locations across France.

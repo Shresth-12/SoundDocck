@@ -29,14 +29,14 @@ function App() {
       <NavvBar/>
       <Heroo/>
     </div> */}
-    {/* <div>
-     <ServiceMain/>
-    </div> */}
     <div>
+     <ServiceMain/>
+    </div>
+    {/* <div>
       <AcademyHero/>
       <Academypage2/>
       <ContactAcademy/>
-    </div>
+    </div> */}
   </>
   )
 }
