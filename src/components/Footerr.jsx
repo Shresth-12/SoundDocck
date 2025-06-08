@@ -69,7 +69,6 @@ const Footerr = () => {
       ref={containerRef}
       className="relative h-screen bg-[#111] text-white font-sans overflow-hidden"
     >
-      {/* Side Labels */}
       <div className="absolute top-1/2 left-10 transform -translate-y-1/2 text-yellow-400 text-xs">
         <span className="flex items-center gap-1">
           <span className="text-[10px] mb-1">▶</span>
@@ -83,8 +82,6 @@ const Footerr = () => {
           <span className="w-2 h-2 bg-yellow-400 rounded-full inline-block mb-1" />
         </span>
       </div>
-
-      {/* Scroll Animation Section */}
       <div className="flex flex-col items-center justify-center h-full relative z-0">
         <h1
           ref={letsRef}
@@ -93,7 +90,6 @@ const Footerr = () => {
           LET’S
         </h1>
 
-        {/* Image that grows to fit gap */}
         <div
           ref={imageRef}
           className="absolute left-1/2 transform -translate-x-1/2 z-[-1] opacity-0 overflow-hidden transition-all duration-200 ease-in-out"
@@ -112,8 +108,6 @@ const Footerr = () => {
           COLLABORATE
         </h1>
       </div>
-
-      {/* Footer */}
       <footer className="w-full fixed bottom-0 z-50 px-6 py-4 flex justify-between items-center text-[11px] text-yellow-400 bg-[#111] font-sans tracking-wide">
         <div className="text-left">
           <HoverSlideText text="LEGALS" textt="LEGALS" />
