@@ -15,6 +15,7 @@ import Academypage2 from './components/Academypage2';
 import Academypage3 from './components/Academypage3';
 import ServiceMain from './components/ServicesMain';
 import ContactAcademy from './components/ContactAcademy';
+import AboveFooter from './components/AboveFooter';
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -29,14 +30,18 @@ function App() {
       <NavvBar/>
       <Heroo/>
     </div> */}
-    <div>
+    {/* <div>
      <ServiceMain/>
-    </div>
+    </div> */}
     {/* <div>
       <AcademyHero/>
       <Academypage2/>
       <ContactAcademy/>
     </div> */}
+
+    <div>
+      <AboveFooter/>
+    </div>
   </>
   )
 }
